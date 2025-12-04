@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xác nhận nhận hồ sơ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px 8px 0 0;
+            margin: -30px -30px 30px -30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        .content {
+            margin: 20px 0;
+        }
+        .info-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .info-box h3 {
+            margin-top: 0;
+            color: #667eea;
+        }
+        .info-item {
+            margin: 10px 0;
+        }
+        .info-item strong {
+            color: #555;
+        }
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+        }
+        .highlight {
+            color: #667eea;
+            font-weight: bold;
+        }
+        .next-steps {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        .next-steps h3 {
+            color: #0277bd;
+            margin-top: 0;
+        }
+        .next-steps ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .next-steps li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="icon">✉️</div>
+            <h1>Xác nhận nhận hồ sơ ứng tuyển</h1>
+        </div>
+        
+        <div class="content">
+            <p>Xin chào <strong>{{hoTen}}</strong>,</p>
+            
+            <p>Cảm ơn bạn đã quan tâm và gửi hồ sơ ứng tuyển đến <span class="highlight">{{companyName}}</span>!</p>
+            
+            <div class="info-box">
+                <h3>📋 Thông tin ứng tuyển</h3>
+                <div class="info-item">
+                    <strong>Vị trí:</strong> {{viTri}}
+                </div>
+                <div class="info-item">
+                    <strong>Thời gian nộp:</strong> {{ngayNop}}
+                </div>
+            </div>
+            
+            <p>Chúng tôi đã nhận được hồ sơ của bạn và sẽ xem xét kỹ lưỡng. Đội ngũ tuyển dụng của chúng tôi sẽ tiến hành sàng lọc và đánh giá hồ sơ trong thời gian sớm nhất.</p>
+            
+            <div class="next-steps">
+                <h3>🔍 Các bước tiếp theo</h3>
+                <ol>
+                    <li>Chúng tôi sẽ xem xét hồ sơ của bạn trong vòng 3-5 ngày làm việc</li>
+                    <li>Nếu hồ sơ phù hợp, bạn sẽ nhận được email thông báo kết quả sàng lọc</li>
+                    <li>Các ứng viên đạt yêu cầu sẽ được mời tham gia phỏng vấn</li>
+                </ol>
+            </div>
+            
+            <p><strong>Lưu ý:</strong> Vui lòng kiểm tra email thường xuyên (bao gồm cả hộp thư spam) để không bỏ lỡ thông báo từ chúng tôi.</p>
+            
+            <p>Chúc bạn may mắn!</p>
+        </div>
+        
+        <div class="footer">
+            <p><strong>{{companyName}}</strong></p>
+            <p>Email này được gửi tự động, vui lòng không trả lời trực tiếp.</p>
+            <p style="font-size: 12px; color: #999;">© 2024 {{companyName}}. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

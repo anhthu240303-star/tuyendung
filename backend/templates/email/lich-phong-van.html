@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lịch phỏng vấn</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px 8px 0 0;
+            margin: -30px -30px 30px -30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .icon {
+            font-size: 64px;
+            margin-bottom: 10px;
+        }
+        .content {
+            margin: 20px 0;
+        }
+        .schedule-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .schedule-box h2 {
+            margin: 0 0 15px 0;
+            font-size: 28px;
+        }
+        .schedule-box .datetime {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .info-grid {
+            display: table;
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: separate;
+            border-spacing: 0 10px;
+        }
+        .info-row {
+            display: table-row;
+        }
+        .info-label {
+            display: table-cell;
+            padding: 12px;
+            background-color: #f8f9fa;
+            font-weight: bold;
+            color: #495057;
+            width: 30%;
+            border-radius: 4px 0 0 4px;
+        }
+        .info-value {
+            display: table-cell;
+            padding: 12px;
+            background-color: #e9ecef;
+            border-radius: 0 4px 4px 0;
+        }
+        .instructions {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .instructions h3 {
+            color: #856404;
+            margin-top: 0;
+        }
+        .instructions ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .instructions li {
+            margin: 8px 0;
+        }
+        .buttons {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .button {
+            display: inline-block;
+            padding: 15px 40px;
+            margin: 10px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        .button.accept {
+            background-color: #28a745;
+            color: white;
+        }
+        .button.accept:hover {
+            background-color: #218838;
+        }
+        .button.reject {
+            background-color: #dc3545;
+            color: white;
+        }
+        .button.reject:hover {
+            background-color: #c82333;
+        }
+        .warning {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            color: #721c24;
+        }
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+        }
+        .highlight {
+            color: #667eea;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="icon">📅</div>
+            <h1>Thư mời phỏng vấn</h1>
+        </div>
+        
+        <div class="content">
+            <p>Xin chào <strong>{{hoTen}}</strong>,</p>
+            
+            <p>Chúc mừng! Sau khi xem xét hồ sơ của bạn, chúng tôi rất vui được mời bạn tham gia phỏng vấn cho vị trí <span class="highlight">{{viTri}}</span> tại <strong>{{companyName}}</strong>.</p>
+            
+            <div class="schedule-box">
+                <h2>📍 Thông tin lịch phỏng vấn</h2>
+                <div class="datetime">⏰ {{thoiGian}}</div>
+            </div>
+            
+            <div class="info-grid">
+                <div class="info-row">
+                    <div class="info-label">📋 Nội dung:</div>
+                    <div class="info-value">{{noiDung}}</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">🎯 Hình thức:</div>
+                    <div class="info-value">{{hinhThuc}}</div>
+                </div>
+                {{hinhThuc === 'Truc_tiep' ? `
+                <div class="info-row">
+                    <div class="info-label">📍 Địa điểm:</div>
+                    <div class="info-value">{{diaDiem}}</div>
+                </div>
+                ` : `
+                <div class="info-row">
+                    <div class="info-label">🔗 Link tham gia:</div>
+                    <div class="info-value"><a href="{{linkOnline}}" style="color: #667eea;">{{linkOnline}}</a></div>
+                </div>
+                `}}
+            </div>
+            
+            <div class="instructions">
+                <h3>📝 Hướng dẫn chuẩn bị</h3>
+                <ul>
+                    <li>Vui lòng xác nhận tham gia bằng cách nhấn nút bên dưới</li>
+                    <li>{{hinhThuc === 'Truc_tiep' ? 'Đến trước giờ hẹn 10-15 phút' : 'Kiểm tra kết nối internet và thiết bị trước 15 phút'}}</li>
+                    <li>Chuẩn bị các câu hỏi muốn trao đổi với nhà tuyển dụng</li>
+                    <li>Mang theo CMND/CCCD và các bằng cấp liên quan (nếu phỏng vấn trực tiếp)</li>
+                    <li>Trang phục lịch sự, chỉn chu</li>
+                </ul>
+            </div>
+            
+            <div class="buttons">
+                <a href="{{linkXacNhan}}" class="button accept">✓ Xác nhận tham gia</a>
+                <a href="{{linkTuChoi}}" class="button reject">✗ Không thể tham gia</a>
+            </div>
+            
+            <div class="warning">
+                <strong>⚠️ Lưu ý quan trọng:</strong> Vui lòng xác nhận tham gia trước 24 giờ so với thời gian phỏng vấn. Nếu bạn không thể tham gia, vui lòng thông báo sớm để chúng tôi có thể sắp xếp lại lịch.
+            </div>
+            
+            <p>Nếu bạn có bất kỳ câu hỏi nào, đừng ngần ngại liên hệ với chúng tôi.</p>
+            
+            <p>Chúc bạn thành công!</p>
+        </div>
+        
+        <div class="footer">
+            <p><strong>{{companyName}}</strong></p>
+            <p>Liên hệ: hr@company.com | (028) 1234 5678</p>
+            <p style="font-size: 12px; color: #999;">© 2024 {{companyName}}. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

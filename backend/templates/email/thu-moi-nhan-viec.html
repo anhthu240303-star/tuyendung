@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thư mời nhận việc</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px 8px 0 0;
+            margin: -30px -30px 30px -30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .icon {
+            font-size: 72px;
+            margin-bottom: 15px;
+        }
+        .congratulations {
+            background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .congratulations h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .content {
+            margin: 20px 0;
+        }
+        .offer-details {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .offer-details h3 {
+            color: #11998e;
+            margin-top: 0;
+            border-bottom: 2px solid #11998e;
+            padding-bottom: 10px;
+        }
+        .detail-grid {
+            display: table;
+            width: 100%;
+            margin: 15px 0;
+            border-collapse: separate;
+            border-spacing: 0 8px;
+        }
+        .detail-row {
+            display: table-row;
+        }
+        .detail-label {
+            display: table-cell;
+            padding: 10px;
+            font-weight: bold;
+            color: #495057;
+            width: 40%;
+            background-color: #e9ecef;
+            border-radius: 4px 0 0 4px;
+        }
+        .detail-value {
+            display: table-cell;
+            padding: 10px;
+            background-color: #ffffff;
+            border: 1px solid #e9ecef;
+            border-left: none;
+            border-radius: 0 4px 4px 0;
+        }
+        .salary-highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .salary-highlight h3 {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+        }
+        .salary-highlight .amount {
+            font-size: 32px;
+            font-weight: bold;
+        }
+        .next-steps {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .next-steps h3 {
+            color: #856404;
+            margin-top: 0;
+        }
+        .next-steps ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .next-steps li {
+            margin: 8px 0;
+        }
+        .deadline-box {
+            background-color: #f8d7da;
+            border: 2px solid #dc3545;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .deadline-box .deadline {
+            font-size: 24px;
+            font-weight: bold;
+            color: #721c24;
+            margin: 10px 0;
+        }
+        .attachment-box {
+            background-color: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .attachment-box h4 {
+            color: #155724;
+            margin-top: 0;
+        }
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+        }
+        .contact-info {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        .contact-info h4 {
+            color: #0277bd;
+            margin-top: 0;
+        }
+        .highlight {
+            color: #11998e;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="icon">🎊</div>
+            <h1>Thư mời nhận việc</h1>
+        </div>
+        
+        <div class="congratulations">
+            <h2>🎉 Chúc mừng bạn đã trúng tuyển!</h2>
+        </div>
+        
+        <div class="content">
+            <p>Kính gửi <strong>{{hoTen}}</strong>,</p>
+            
+            <p>Thay mặt cho <strong>{{companyName}}</strong>, chúng tôi rất vui mừng thông báo rằng bạn đã được chọn cho vị trí <span class="highlight">{{viTri}}</span> sau quá trình tuyển dụng.</p>
+            
+            <p>Chúng tôi đánh giá cao kinh nghiệm, kỹ năng và sự nhiệt tình của bạn. Chúng tôi tin rằng bạn sẽ là một thành viên xuất sắc của đội ngũ chúng tôi!</p>
+            
+            <div class="offer-details">
+                <h3>📋 Chi tiết công việc</h3>
+                <div class="detail-grid">
+                    <div class="detail-row">
+                        <div class="detail-label">Vị trí:</div>
+                        <div class="detail-value">{{viTri}}</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Ngày bắt đầu:</div>
+                        <div class="detail-value">{{ngayBatDau}}</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">Địa điểm:</div>
+                        <div class="detail-value">{{diaDiem}}</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="salary-highlight">
+                <h3>💰 Mức lương</h3>
+                <div class="amount">{{mucLuong}}</div>
+                <p style="margin: 10px 0;">+ Các phụ cấp và thưởng theo chính sách công ty</p>
+            </div>
+            
+            <div class="attachment-box">
+                <h4>📎 File đính kèm</h4>
+                <p>Vui lòng xem chi tiết đầy đủ về offer trong file PDF đính kèm theo email này. Bao gồm:</p>
+                <ul>
+                    <li>Thông tin chi tiết về lương thưởng và phúc lợi</li>
+                    <li>Các điều khoản và điều kiện làm việc</li>
+                    <li>Quyền lợi và nghĩa vụ của nhân viên</li>
+                </ul>
+                <p><strong>Mã Offer:</strong> {{maOffer}}</p>
+            </div>
+            
+            <div class="deadline-box">
+                <p><strong>⏰ Hạn trả lời:</strong></p>
+                <div class="deadline">{{hanTraLoi}}</div>
+                <p style="margin: 10px 0; color: #721c24;">Vui lòng xác nhận chấp nhận hoặc từ chối offer trước thời hạn trên</p>
+            </div>
+            
+            <div class="next-steps">
+                <h3>📝 Các bước tiếp theo</h3>
+                <ol>
+                    <li>Đọc kỹ toàn bộ nội dung trong file PDF đính kèm</li>
+                    <li>Nếu bạn chấp nhận offer, vui lòng gửi email xác nhận</li>
+                    <li>Chuẩn bị các giấy tờ cần thiết:
+                        <ul>
+                            <li>CMND/CCCD (bản photo công chứng)</li>
+                            <li>Bằng cấp, chứng chỉ liên quan</li>
+                            <li>Hồ sơ sức khỏe</li>
+                            <li>Giấy xác nhận thôi việc (nếu có)</li>
+                        </ul>
+                    </li>
+                    <li>Liên hệ với chúng tôi nếu có bất kỳ câu hỏi nào</li>
+                </ol>
+            </div>
+            
+            <div class="contact-info">
+                <h4>📞 Thông tin liên hệ</h4>
+                <p><strong>Người liên hệ:</strong> {{nguoiLienHe}}<br>
+                <strong>Email:</strong> {{emailNguoiLienHe}}<br>
+                <strong>Số điện thoại:</strong> {{sdtNguoiLienHe}}</p>
+            </div>
+            
+            <p>Chúng tôi rất mong được chào đón bạn gia nhập đội ngũ <strong>{{companyName}}</strong> và cùng nhau tạo nên những thành công mới!</p>
+            
+            <p>Trân trọng,</p>
+            <p><strong>Ban Tuyển Dụng<br>{{companyName}}</strong></p>
+        </div>
+        
+        <div class="footer">
+            <p><strong>{{companyName}}</strong></p>
+            <p>Email: hr@company.com | Hotline: (028) 1234 5678</p>
+            <p style="font-size: 12px; color: #999; margin-top: 15px;">
+                Email này chứa thông tin bảo mật. Vui lòng không chia sẻ với người khác.<br>
+                © 2024 {{companyName}}. All rights reserved.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

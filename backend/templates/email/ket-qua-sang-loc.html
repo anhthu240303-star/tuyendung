@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết quả sàng lọc hồ sơ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header {
+            color: white;
+            padding: 20px;
+            border-radius: 8px 8px 0 0;
+            margin: -30px -30px 30px -30px;
+            text-align: center;
+        }
+        .header.success {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+        .header.fail {
+            background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .icon {
+            font-size: 64px;
+            margin-bottom: 10px;
+        }
+        .result-box {
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .result-box.success {
+            background-color: #d4edda;
+            border: 2px solid #28a745;
+        }
+        .result-box.fail {
+            background-color: #f8d7da;
+            border: 2px solid #dc3545;
+        }
+        .result-box h2 {
+            margin: 0;
+            font-size: 32px;
+        }
+        .result-box.success h2 {
+            color: #155724;
+        }
+        .result-box.fail h2 {
+            color: #721c24;
+        }
+        .content {
+            margin: 20px 0;
+        }
+        .info-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .info-box h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+        .next-steps {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+            border-left: 4px solid #ffc107;
+        }
+        .next-steps h3 {
+            color: #856404;
+            margin-top: 0;
+        }
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header {{ketQua}}">
+            <div class="icon">{{ketQua === 'ĐẠT' ? '🎉' : '📝'}}</div>
+            <h1>Kết quả sàng lọc hồ sơ</h1>
+        </div>
+        
+        <div class="content">
+            <p>Xin chào <strong>{{hoTen}}</strong>,</p>
+            
+            <p>Cảm ơn bạn đã ứng tuyển vào vị trí <span class="highlight">{{viTri}}</span> tại <strong>{{companyName}}</strong>.</p>
+            
+            <div class="result-box {{ketQua === 'ĐẠT' ? 'success' : 'fail'}}">
+                <h2>{{ketQua}}</h2>
+            </div>
+            
+            <div class="info-box">
+                <p>{{noiDung}}</p>
+            </div>
+            
+            {{ketQua === 'ĐẠT' ? `
+            <div class="next-steps">
+                <h3>📅 Các bước tiếp theo</h3>
+                <ul style="margin: 10px 0; padding-left: 20px;">
+                    <li>Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất để sắp xếp lịch phỏng vấn</li>
+                    <li>Vui lòng chuẩn bị các tài liệu liên quan và nghiên cứu về công ty</li>
+                    <li>Kiểm tra email thường xuyên để nhận thông tin chi tiết về lịch phỏng vấn</li>
+                </ul>
+            </div>
+            ` : `
+            <p>Chúng tôi rất trân trọng sự quan tâm của bạn đối với <strong>{{companyName}}</strong>. Mặc dù lần này hồ sơ của bạn chưa phù hợp, chúng tôi khuyến khích bạn tiếp tục theo dõi các cơ hội nghề nghiệp khác tại công ty chúng tôi.</p>
+            
+            <p>Chúng tôi sẽ lưu giữ hồ sơ của bạn trong hệ thống và sẽ liên hệ nếu có vị trí phù hợp hơn trong tương lai.</p>
+            `}}
+            
+            <p>{{ketQua === 'ĐẠT' ? 'Chúc bạn thành công trong vòng phỏng vấn sắp tới!' : 'Chúc bạn sớm tìm được công việc phù hợp và thành công trong sự nghiệp!'}}</p>
+        </div>
+        
+        <div class="footer">
+            <p><strong>{{companyName}}</strong></p>
+            <p>Email này được gửi tự động, vui lòng không trả lời trực tiếp.</p>
+            <p>Nếu có thắc mắc, vui lòng liên hệ: hr@company.com</p>
+            <p style="font-size: 12px; color: #999;">© 2024 {{companyName}}. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
