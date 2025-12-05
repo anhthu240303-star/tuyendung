@@ -20,18 +20,59 @@ class BaoCaoService {
     throw response.data['message'] ?? 'Lỗi';
   }
 
-  Future<List<Map<String, dynamic>>> getBaoCaoTheoTin() async {
-    final response = await _api.get(ApiConstants.baoCaoTheoTin);
+  Future<List<Map<String, dynamic>>> getBaoCaoTheoTin({
+    DateTime? tuNgay,
+    DateTime? denNgay,
+  }) async {
+    final queryParams = <String, String>{};
+    if (tuNgay != null) queryParams['tuNgay'] = tuNgay.toIso8601String();
+    if (denNgay != null) queryParams['denNgay'] = denNgay.toIso8601String();
+
+    final response = await _api.get(
+      ApiConstants.baoCaoTheoTin,
+      queryParameters: queryParams,
+    );
     if (response.data['success'] == true) {
       return List<Map<String, dynamic>>.from(response.data['data']);
     }
     throw response.data['message'] ?? 'Lỗi';
   }
 
-  Future<Map<String, dynamic>> getBaoCaoTheoNguon() async {
-    final response = await _api.get(ApiConstants.baoCaoTheoNguon);
+  Future<Map<String, dynamic>> getBaoCaoTheoNguon({
+    DateTime? tuNgay,
+    DateTime? denNgay,
+  }) async {
+    final queryParams = <String, String>{};
+    if (tuNgay != null) queryParams['tuNgay'] = tuNgay.toIso8601String();
+    if (denNgay != null) queryParams['denNgay'] = denNgay.toIso8601String();
+
+    final response = await _api.get(
+      ApiConstants.baoCaoTheoNguon,
+      queryParameters: queryParams,
+    );
     if (response.data['success'] == true) {
       return response.data['data'];
+    }
+    throw response.data['message'] ?? 'Lỗi';
+  }
+
+  Future<List<Map<String, dynamic>>> getBaoCaoTheoThoiGian({
+    DateTime? tuNgay,
+    DateTime? denNgay,
+    String groupBy = 'ngay',
+  }) async {
+    final queryParams = <String, String>{
+      'groupBy': groupBy,
+    };
+    if (tuNgay != null) queryParams['tuNgay'] = tuNgay.toIso8601String();
+    if (denNgay != null) queryParams['denNgay'] = denNgay.toIso8601String();
+
+    final response = await _api.get(
+      ApiConstants.baoCaoTheoThoiGian,
+      queryParameters: queryParams,
+    );
+    if (response.data['success'] == true) {
+      return List<Map<String, dynamic>>.from(response.data['data']);
     }
     throw response.data['message'] ?? 'Lỗi';
   }

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../../config/constants/api_constants.dart';
@@ -52,7 +53,7 @@ class StorageService {
       final userMap = jsonDecode(userJson) as Map<String, dynamic>;
       return NguoiDung.fromJson(userMap);
     } catch (e) {
-      print('Error parsing user: $e');
+      debugPrint('Error parsing user: $e');
       return null;
     }
   }

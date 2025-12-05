@@ -41,5 +41,39 @@ class HoiDongService {
     }
     throw response.data['message'] ?? 'Lỗi';
   }
+
+  Future<HoiDongPhongVan> capNhat(String id, Map<String, dynamic> data) async {
+    final response = await _api.put(ApiConstants.hoiDongDetail(id), data: data);
+    if (response.data['success'] == true) {
+      return HoiDongPhongVan.fromJson(response.data['data']);
+    }
+    throw response.data['message'] ?? 'Cập nhật thất bại';
+  }
+
+  Future<bool> xoa(String id) async {
+    final response = await _api.delete(ApiConstants.hoiDongDetail(id));
+    return response.data['success'] == true;
+  }
+
+  Future<HoiDongPhongVan> themThanhVien(String id, Map<String, dynamic> thanhVien) async {
+    final response = await _api.post(
+      ApiConstants.hoiDongThanhVien(id),
+      data: thanhVien,
+    );
+    if (response.data['success'] == true) {
+      return HoiDongPhongVan.fromJson(response.data['data']);
+    }
+    throw response.data['message'] ?? 'Thêm thành viên thất bại';
+  }
+
+  Future<HoiDongPhongVan> xoaThanhVien(String id, String nguoiDungId) async {
+    final response = await _api.delete(
+      '${ApiConstants.hoiDongThanhVien(id)}/$nguoiDungId',
+    );
+    if (response.data['success'] == true) {
+      return HoiDongPhongVan.fromJson(response.data['data']);
+    }
+    throw response.data['message'] ?? 'Xóa thành viên thất bại';
+  }
 }
 

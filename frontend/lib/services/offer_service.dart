@@ -41,5 +41,45 @@ class OfferService {
     await _api.downloadFile(ApiConstants.offerDownload(id), savePath);
     return savePath;
   }
+
+  Future<ThuMoiNhanViec> getChiTiet(String id) async {
+    final response = await _api.get(ApiConstants.offerDetail(id));
+    if (response.data['success'] == true) {
+      return ThuMoiNhanViec.fromJson(response.data['data']);
+    }
+    throw response.data['message'] ?? 'Không lấy được chi tiết';
+  }
+
+  Future<ThuMoiNhanViec> capNhat(String id, Map<String, dynamic> data) async {
+    final response = await _api.put(ApiConstants.offerDetail(id), data: data);
+    if (response.data['success'] == true) {
+      return ThuMoiNhanViec.fromJson(response.data['data']);
+    }
+    throw response.data['message'] ?? 'Cập nhật thất bại';
+  }
+
+  Future<bool> xoa(String id) async {
+    final response = await _api.delete(ApiConstants.offerDetail(id));
+    return response.data['success'] == true;
+  }
+
+  Future<ThuMoiNhanViec> huyOffer(String id, String lyDo) async {
+    final response = await _api.put(
+      ApiConstants.offerHuy(id),
+      data: {'lyDo': lyDo},
+    );
+    if (response.data['success'] == true) {
+      return ThuMoiNhanViec.fromJson(response.data['data']);
+    }
+    throw response.data['message'] ?? 'Hủy offer thất bại';
+  }
+
+  Future<bool> traLoiOffer(String maOffer, bool chap) async {
+    final response = await _api.post(
+      ApiConstants.offerTraLoi(maOffer),
+      data: {'chap': chap},
+    );
+    return response.data['success'] == true;
+  }
 }
 
